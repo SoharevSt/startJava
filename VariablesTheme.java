@@ -94,7 +94,7 @@ public class VariablesTheme {
 
         int sourceNumber = 123;
         System.out.println("Число " + sourceNumber + " содержит:\n" + sourceNumber / 100 
-            + " сотен\n" + sourceNumber / 10 % 10 + " десятков\n" + sourceNumber % 10 + " единиц");
+                + " сотен\n" + sourceNumber / 10 % 10 + " десятков\n" + sourceNumber % 10 + " единиц");
 
         System.out.println("\n8. Вывод в консоль ASCII-арт Дюка\n");
 
@@ -114,19 +114,17 @@ public class VariablesTheme {
         System.out.println("\n9. Вывод произведения и суммы цифр числа\n");
 
         sourceNumber = 345;
-        int unit = sourceNumber % 10;
-        int ten = sourceNumber / 10 % 10;
-        int hundred = sourceNumber / 100;
+        int ones = sourceNumber % 10;
+        int tens = sourceNumber / 10 % 10;
+        int hunreds = sourceNumber / 100;
 
-        System.out.println("Сумма цифр числа " + sourceNumber + " = " + (unit + ten + hundred));
-        System.out.println("Произведение цифр числа " + sourceNumber + " = " + (unit * ten 
-                * hundred));
+        System.out.println("Сумма цифр числа " + sourceNumber + " = " + (ones + tens + hunreds));
+        System.out.println("Произведение цифр числа " + sourceNumber + " = " + (ones * tens * hunreds));
 
         System.out.println("\n10. Вывод времени\n");
 
         sourceNumber = 86399;
-        
         System.out.println(sourceNumber / 3600 + ":" + (sourceNumber - sourceNumber / 3600 * 3600) 
-            / 60 + ":" + sourceNumber % 60);
+                / 60 + ":" + sourceNumber % 60);
     }
 }
