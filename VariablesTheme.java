@@ -43,12 +43,12 @@ public class VariablesTheme {
         int intType = 2147483647;
         long longType = 9223372036854775807L;
 
-        System.out.println("Тип byte: " + byteType + " инкремент: " + ++byteType + " декремент: " 
-                + --byteType);
+        System.out.println("Тип byte: " + byteType + " инкремент: " + ++byteType + 
+                " декремент: " + --byteType);
         System.out.println("Тип short: " + shortType + " инкремент: " + ++shortType + " декремент: " 
                 + --shortType);
-        System.out.println("Тип int: " + intType + " инкремент: " + ++intType + " декремент: " + 
-                --intType);
+        System.out.println("Тип int: " + intType + " инкремент: " + ++intType + 
+                " декремент: " + --intType);
         System.out.println("Тип long: " + longType + " инкремент: " + ++longType + " декремент: " 
                 + --longType);
 
@@ -93,8 +93,8 @@ public class VariablesTheme {
         System.out.println("\n7. Вывод количества сотен, десятков и единиц числа\n");
 
         int sourceNumber = 123;
-        System.out.println("Число " + sourceNumber + " содержит:\n" + sourceNumber / 100 
-                + " сотен\n" + sourceNumber / 10 % 10 + " десятков\n" + sourceNumber % 10 + " единиц");
+        System.out.println("Число " + sourceNumber + " содержит:\n" + sourceNumber / 100 + 
+                " сотен\n" + sourceNumber / 10 % 10 + " десятков\n" + sourceNumber % 10 + " единиц");
 
         System.out.println("\n8. Вывод в консоль ASCII-арт Дюка\n");
 
@@ -105,11 +105,11 @@ public class VariablesTheme {
 
         System.out.println("     " + slash + backslash);
         System.out.println("    " + slash + "  " + backslash);
-        System.out.println("   " + slash + underscore + openParenthesis + " " + closeParenthesis 
-                + backslash);
+        System.out.println("   " + slash + underscore + openParenthesis + " " + 
+                closeParenthesis + backslash);
         System.out.println("  " + slash + "      " + backslash);
-        System.out.println(" " + slash + underscore + underscore + underscore + underscore + slash 
-                + backslash + underscore + underscore + backslash);
+        System.out.println(" " + slash + underscore + underscore + underscore + underscore + 
+                slash + backslash + underscore + underscore + backslash);
 
         System.out.println("\n9. Вывод произведения и суммы цифр числа\n");
 
@@ -124,7 +124,7 @@ public class VariablesTheme {
         System.out.println("\n10. Вывод времени\n");
 
         sourceNumber = 86399;
-        System.out.println(sourceNumber / 3600 + ":" + (sourceNumber - sourceNumber / 3600 * 3600) 
-                / 60 + ":" + sourceNumber % 60);
+        System.out.println(sourceNumber / 3600 + ":" + (sourceNumber - sourceNumber / 3600 * 3600) / 
+                60 + ":" + sourceNumber % 60);
     }
 }
