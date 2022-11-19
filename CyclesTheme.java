@@ -24,14 +24,16 @@ public class CyclesTheme {
         int minNum = num1;
         int maxNum = num2;
 
-        if(num1 >= maxNum) {
+        if(num1 > maxNum) {
             maxNum = num1;
-        } else if (num3 >= maxNum) {
+        }
+        if (num3 > maxNum) {
             maxNum = num3;
         }
-        if(num2 <= minNum) {
+        if(num2 < minNum) {
             minNum = num2;
-        } else if(num3 <= minNum) {
+        }
+        if(num3 < minNum) {
             minNum = num3;
         }
         for(int i = maxNum - 1; i > minNum; i--) {
@@ -50,21 +52,21 @@ public class CyclesTheme {
         System.out.println("\n" + sumDigits);
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк\n");
-        int numCount = 1;
+        int numPerLine = 1;
         int charByNum = 3;
-        int numByRow = 5;
-        for(int i = 1; i < 24; i += 2, numCount++) {
+        int numLimit = 5;
+        for(int i = 1; i < 24; i += 2, numPerLine++) {
             System.out.printf("%3d", i);
-            if(numCount % numByRow == 0) {
+            if(numPerLine % numLimit == 0) {
                 System.out.println();
             }
         }
-        for(; numCount <= charByNum * numByRow; numCount++) {
+        for(; numPerLine <= charByNum * numLimit; numPerLine++) {
             System.out.printf("%3d", 0);
         }
 
         System.out.println("\n\n5. Проверка количества двоек на четность\n");
-        srcNum = 3242592;
+        srcNum = 3242522;
         int copySrcNum = srcNum;
         int numTwos = 0;
         while(copySrcNum != 0) {
@@ -73,11 +75,8 @@ public class CyclesTheme {
             }
             copySrcNum /= 10;
         }
-        if(numTwos % 2 == 0) {
-            System.out.println("число " + srcNum + " содержит " + numTwos + "(четное) количество двоек");
-        } else {
-            System.out.println("число " + srcNum + " содержит " + numTwos + "(нечетное) количество двоек");
-        }
+        System.out.println("число " + srcNum + " содержит " + numTwos + 
+                (numTwos % 2 == 0 ? " (четное)" : " (нечетное)") + " количество двоек");
 
         System.out.println("\n6. Отображение фигур в консоли\n");
         for(int i = 1; i < 6; i++) {
@@ -108,14 +107,12 @@ public class CyclesTheme {
             System.out.println();
             if(rowCount < 3) {
                 charCount = 1;
-                rowCount++;
             } else if(rowCount == 3) {
                 charCount = 3;
-                rowCount++;
             } else {
                 charCount = 5;
-                rowCount++;
             }
+            rowCount++;
         } while(rowCount < 6);
 
         System.out.println("\n7. Отображение ASCII-символов\n");
@@ -137,11 +134,8 @@ public class CyclesTheme {
             revNum = revNum * 10 + srcNum % 10;
             srcNum /= 10;
         }
-        if(copySrcNum == revNum) {
-            System.out.println("Число " + copySrcNum + " является палиндромом");
-        } else {
-            System.out.println("Число " + copySrcNum + " не является палиндромом");
-        }
+        System.out.println("Число " + copySrcNum + (copySrcNum == revNum ? "" : " не") + 
+                " является палиндромом");
 
         System.out.println("\n9. Определение, является ли число счастливым\n");
         startRange = 234162;
@@ -150,7 +144,7 @@ public class CyclesTheme {
         int topSum = 0;
         int bottomSum = 0;
 
-        while(topHalf != 0){
+        while(topHalf > 0) {
             topSum += topHalf % 10;
             topHalf /= 10;
             bottomSum += bottomHalf % 10;
@@ -167,11 +161,11 @@ public class CyclesTheme {
         System.out.println("\n10. Вывод таблицы умножения Пифагора\n");
         System.out.println("\tТАБЛИЦА ПИФАГОРА");
         System.out.printf("%4c", '|');
-        for(int k = 2; k < 10; k++) {
-            System.out.printf("% 3d", k);
+        for(int i = 2; i < 10; i++) {
+            System.out.printf("% 3d", i);
         }
         System.out.println();
-        for(int f = 1; f < 30; f++) {
+        for(int i = 1; i < 30; i++) {
             System.out.printf("%c", '-');
         }
         System.out.println();
