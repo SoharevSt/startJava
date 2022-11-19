@@ -152,11 +152,8 @@ public class CyclesTheme {
         }
         System.out.println("Сумма цифр " + startRange / 1000 + " = " + topSum + "\nСумма цифр " + 
                 startRange % 1000 + " = " + bottomSum);
-        if(topSum == bottomSum) {
-            System.out.println("Число " + startRange + " является счастливым");
-        } else {
-            System.out.println("Число " + startRange + " не является счастливым");
-        }
+        System.out.println("Число " + startRange + (topSum == bottomSum ? "" : " не") + 
+                " является счастливым");
 
         System.out.println("\n10. Вывод таблицы умножения Пифагора\n");
         System.out.println("\tТАБЛИЦА ПИФАГОРА");
