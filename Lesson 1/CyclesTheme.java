@@ -61,7 +61,7 @@ public class CyclesTheme {
                 System.out.println();
             }
         }
-        for(; numPerLine <= charByNum * numLimit; numPerLine++) {
+        for(int i = 0; i <= numLimit - numPerLine % numLimit; i++) {
             System.out.printf("%3d", 0);
         }
 
@@ -116,13 +116,15 @@ public class CyclesTheme {
         } while(rowCount < 6);
 
         System.out.println("\n7. Отображение ASCII-символов\n");
-        System.out.printf("%6s", "Dec");
-        for(int i = 1; i < 48; i += 2) {
-            System.out.printf("\n%5c", i);
-        }
-        System.out.printf("\n\n%6s", "Char");
-        for(int j = 98; j < 123; j += 2) {
-            System.out.printf("\n%5c", j);
+        System.out.printf("%6s %6s", "Dec", "Char");
+        for(int i = 1, j = 98; i < 48; i += 2, j += 2) {
+            if(j > 122) {
+                System.out.printf("\n%5c", i);
+            } else if(i == 7 || i == 9 || i == 13) {
+                System.out.printf("\n%11c", j);
+            } else {
+                System.out.printf("\n%5c %5c", i, j);
+            }
         }
 
         System.out.println("\n\n8. Проверка, является ли число палиндромом\n");
