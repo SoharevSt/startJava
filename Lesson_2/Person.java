@@ -6,19 +6,23 @@ public class Person {
     float height = 1.89f;
     float weight = 85.5f;
 
-    void spellName() {
-        System.out.println(name);
-    }
-
     void walk() {
         System.out.println("I walk");
     }
 
-    void lernJava() {
-        System.out.println("I am learning Java!");
+    void sit() {
+        System.out.println("I sit");
     }
 
-    short getAge() {
-        return age;
+    void run() {
+        System.out.println("I run");
+    }
+
+    void talk() {
+        System.out.println("I'm talking'");
+    }
+
+    void learnJava() {
+        System.out.println("I am learning Java!");
     }
 }
