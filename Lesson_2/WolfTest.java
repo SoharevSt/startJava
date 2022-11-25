@@ -8,6 +8,6 @@ public class WolfTest {
         wolf.setAge((short) 3);
         wolf.setColour("black");
         System.out.println(wolf.getSex() + ", " + wolf.getName() + ", " + wolf.getWeight() + ", " + 
-            wolf.getAge() + ", " + wolf.getColour());
+                wolf.getAge() + ", " + wolf.getColour());
     }
 }
