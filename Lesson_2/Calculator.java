@@ -15,7 +15,7 @@ public class Calculator {
         this.num2 = num2;
     }
 
- public int calc() {
+    public int calc() {
         return switch (sign) {
             case '+' -> num1 + num2;
             case '-' -> num1 - num2;
