@@ -15,24 +15,24 @@ public class Calculator {
         this.num2 = num2;
     }
 
-    public int calc() {
-        int result = 1;
-        switch (sign) {
-            case '+' -> result = num1 + num2;
-            case '-' -> result = num1 - num2;
-            case '*' -> result = num1 * num2;
-            case '/' -> result = num1 / num2;
-            case '%' -> result = num1 % num2;
+ public int calc() {
+        return switch (sign) {
+            case '+' -> num1 + num2;
+            case '-' -> num1 - num2;
+            case '*' -> num1 * num2;
+            case '/' -> num1 / num2;
+            case '%' -> num1 % num2;
             case '^' -> {
+                int result = 1;
                 for (int i = 1; i <= num2; i++) {
                     result *= num1;
                 }
+                yield result;
             }
             default -> {
                 System.out.println("Вам нужен другой калькулятор");
-                result = 0;
+                yield 0;
             }
-        }
-        return result;
+        };
     }
 }
