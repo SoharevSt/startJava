@@ -8,59 +8,47 @@ public class ArrayTheme {
         System.out.println("1. Реверс значений массива");
         int[] intArray = {7, 1, 3, 2, 6, 4, 5};
         printInt(intArray);
-        System.out.println();
-        int tempNum;
         int length = intArray.length;
-        for (int i = 0, j = length - 1; i <= length / 2; i++, j--) {
-            tempNum = intArray[i];
-            intArray[i] = intArray[j];
-            intArray[j] = tempNum;
+        for (int i = 0; i < length - 1; i++) {
+            int tempNum = intArray[i];
+            intArray[i] = intArray[length - 1];
+            intArray[length - 1] = tempNum;
+            length--;
         }
         printInt(intArray);
 
-        System.out.println("\n\n2. Вывод произведения элементов массива");
+        System.out.println("\n2. Вывод произведения элементов массива");
         intArray = new int[10];
         length = intArray.length;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < length; i++) {
             intArray[i] = i;
         }
-        int result = 1;
-        for (int i = 0; i < length - 1; i++) {
-            result = intArray[i] == 0 || intArray[i] == 9 ? result : result * intArray[i];
-            if (i > 0 && i < length - 2) {
-                System.out.print(intArray[i] + " * ");
-            } else if (i == length - 2) {
-                System.out.print(intArray[i] + " = ");
-            }
+        int prodDigits = 1;
+        for (int i = 1; i < length - 1; i++) {
+            prodDigits *= i;
+            String s = i == length - 2 ? intArray[i] + " = " : intArray[i] + " * ";
+            System.out.print(s);
         }
-        System.out.println(result);
-        for (int i = 0; i < length; i++) {
-            if (intArray[i] == 0 || intArray[i] == 9) {
-                System.out.print(intArray[i] + " индекс " + i + " ");
-            }
-        }
+        System.out.println(prodDigits);
+        System.out.print(intArray[0] + ", " + intArray[9]);
 
         System.out.println("\n\n3. Удаление элементов массива");
-        double[] sourceArray = new double[15];
-        double[] modifiedArray = new double[15];
+        double[] doubleArray = new double[15];
         int numberZero = 0;
-        length = sourceArray.length;
-        int middleCellIndex = length / 2;
+        length = doubleArray.length;
         for (int i = 0; i < length; i++) {
-            sourceArray[i] = Math.random();
+            doubleArray[i] = Math.random();
         }
+        double middleCellDigit = doubleArray[length / 2];
+        printDoubleFormat(length, doubleArray);
         for (int i = 0; i < length; i++) {
-            if (sourceArray[i] > sourceArray[middleCellIndex]) {
-                modifiedArray[i] = 0;
+            if (doubleArray[i] > middleCellDigit) {
+                doubleArray[i] = 0;
                 numberZero++;
-            } else {
-                modifiedArray[i] = sourceArray[i];
             }
         }
-        printDoubleFormat(length, sourceArray, middleCellIndex);
-        System.out.println();
-        printDoubleFormat(length, modifiedArray, middleCellIndex);
-        System.out.println("\nКоличество обнуленных ячеек: " + numberZero);
+        printDoubleFormat(length, doubleArray);
+        System.out.println("Количество обнуленных ячеек: " + numberZero);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
         char[] charArr = new char[26];
@@ -122,7 +110,6 @@ public class ArrayTheme {
             j += stringNum;
         }
         printString(stringArr);
-        System.out.println();
         printString(modifiedStringArr);
     }
 
@@ -130,20 +117,23 @@ public class ArrayTheme {
         for (int i : arr) {
             System.out.print(i + " ");
         }
+        System.out.println();
     }
 
-    private static void printDoubleFormat(int length, double[] sourceArray, int middleCellIndex) {
+    private static void printDoubleFormat(int length, double[] sourceArray) {
         for (int i = 0; i < length; i++) {
             System.out.printf("%.3f ", sourceArray[i]);
-            if (i == middleCellIndex) {
+            if (i == length / 2) {
                 System.out.println();
             }
         }
+        System.out.println();
     }
 
     private static void printString(String[] stringArr) {
         for (String s : stringArr) {
             System.out.print(s + " ");
         }
+        System.out.println();
     }
 }
