@@ -87,29 +87,26 @@ public class ArrayTheme {
         }
 
         System.out.println("\n6. Сдвиг элементов массива");
-        String[] stringArray = {" ", "AA", "", "BBB", "CC", "D", " ", "E", "FF", "G", ""};
+        String[] srcArray = {" ", "AA", "", "BBB", "CC", "D", " ", "E", "FF", "G", ""};
         length = 0;
-        for (String s : stringArray) {
+        for (String s : srcArray) {
             if (!s.isBlank()) {
                 length++;
             }
         }
-        String[] modifiedStringArray = new String[length];
-        length = stringArray.length;
+        String[] destArray = new String[length];
+        length = srcArray.length;
         for (i = 0, j = 0; i < length; i++) {
             int stringNum = 0;
-            while (!stringArray[i].isBlank()) {
+            while (!srcArray[i].isBlank() && i < length - 1) {
                 stringNum++;
                 i++;
-                if (i == length) {
-                    break;
-                }
             }
-            System.arraycopy(stringArray, i - stringNum, modifiedStringArray, j, stringNum);
+            System.arraycopy(srcArray, i - stringNum, destArray, j, stringNum);
             j += stringNum;
         }
-        printString(stringArray);
-        printString(modifiedStringArray);
+        printString(srcArray);
+        printString(destArray);
     }
 
     private static void printInt(int[] array) {
