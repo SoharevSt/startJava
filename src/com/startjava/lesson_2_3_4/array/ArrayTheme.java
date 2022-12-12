@@ -10,9 +10,8 @@ public class ArrayTheme {
         printInt(intArray);
         int length = intArray.length;
         for (int i = 0; i < length; i++) {
-            length--;
             int tempNum = intArray[i];
-            intArray[i] = intArray[length];
+            intArray[i] = intArray[--length];
             intArray[length] = tempNum;
         }
         printInt(intArray);
@@ -50,23 +49,21 @@ public class ArrayTheme {
         System.out.println("Количество обнуленных ячеек: " + numberZero);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
-        char[] uppercaseLetterArray = new char[26];
-        length = uppercaseLetterArray.length;
+        char[] abcArray = new char[26];
+        length = abcArray.length;
         for (int i = 0; i < length; i++) {
-            uppercaseLetterArray[i] = (char) ('A' + i);
+            abcArray[i] = (char) ('A' + i);
         }
         for (int i = 1; i <= length; i++) {
             for (int j = length - 1; j >= length - i; j--) {
-                System.out.print(uppercaseLetterArray[j]);
+                System.out.print(abcArray[j]);
             }
             System.out.println();
         }
 
         System.out.println("\n5. Генерация уникальных чисел");
         intArray = new int[30];
-        int i;
-        int j;
-        for (i = 0; i < intArray.length; ) {
+        for (int i = 0, j; i < intArray.length; ) {
             int randomNum = (int) (Math.random() * 40 + 60);
             for (j = 0; j < i; j++) {
                 if (intArray[j] == randomNum) {
@@ -79,7 +76,7 @@ public class ArrayTheme {
             }
         }
         Arrays.sort(intArray);
-        for (i = 0; i < intArray.length; i++) {
+        for (int i = 0; i < intArray.length; i++) {
             System.out.print(intArray[i] + " ");
             if (i % 10 == 9) {
                 System.out.println();
@@ -96,9 +93,9 @@ public class ArrayTheme {
         }
         String[] destArray = new String[length];
         length = srcArray.length;
-        for (i = 0, j = 0; i < length; i++) {
+        for (int i = 0, j = 0; i < length; i++) {
             int stringNum = 0;
-            while (!srcArray[i].isBlank() && i < length - 1) {
+            while ((!srcArray[i].isBlank()) && (i < length - 1)) {
                 stringNum++;
                 i++;
             }
