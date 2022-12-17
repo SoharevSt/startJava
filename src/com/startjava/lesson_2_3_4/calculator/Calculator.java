@@ -1,36 +1,20 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    private char sign;
-    private int num1;
-    private int num2;
+    private String[] expression = new String[3];
 
-    public void setSign(char sign) {
-        this.sign = sign;
-    }
-
-    public void setNum1(int num1) {
-        this.num1 = num1;
-    }
-
-    public void setNum2(int num2) {
-        this.num2 = num2;
+    public void setExpression(String expression) {
+        this.expression = expression.split(" ");
     }
 
     public int calc() {
-        return switch (sign) {
-            case '+' -> num1 + num2;
-            case '-' -> num1 - num2;
-            case '*' -> num1 * num2;
-            case '/' -> num1 / num2;
-            case '%' -> num1 % num2;
-            case '^' -> {
-                int result = 1;
-                for (int i = 1; i <= num2; i++) {
-                    result *= num1;
-                }
-                yield result;
-            }
+        return switch (expression[1].charAt(0)) {
+            case '+' -> Integer.parseInt(expression[0]) + Integer.parseInt(expression[2]);
+            case '-' -> Integer.parseInt(expression[0]) - Integer.parseInt(expression[2]);
+            case '*' -> Integer.parseInt(expression[0]) * Integer.parseInt(expression[2]);
+            case '/' -> Integer.parseInt(expression[0]) / Integer.parseInt(expression[2]);
+            case '%' -> Integer.parseInt(expression[0]) % Integer.parseInt(expression[2]);
+            case '^' -> (int) Math.pow(Integer.parseInt(expression[0]), Integer.parseInt(expression[2]));
             default -> {
                 System.out.println("Вам нужен другой калькулятор");
                 yield 0;
