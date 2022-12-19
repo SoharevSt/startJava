@@ -1,14 +1,9 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    private static String[] expression = new String[3];
-
-    public static void setExpression(String expression) {
-        Calculator.expression = expression.split(" ");
-    }
 
     public static int calc(String ex) {
-        setExpression(ex);
+        String[] expression = ex.split(" ");
         try {
             int num1 = Integer.parseInt(expression[0]);
             int num2 = Integer.parseInt(expression[2]);
