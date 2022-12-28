@@ -6,13 +6,13 @@ public class GuessNumberTest {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Игрок 1 введите свое имя");
-        Player player1 = new Player(sc.nextLine());
-        System.out.println("Игрок 2 введите свое имя");
-        Player player2 = new Player(sc.nextLine());
+        Player[] players = new Player[3];
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Игрок " + (i + 1) + " введите свое имя");
+            players[i] = new Player(sc.nextLine());
+        }
         System.out.println("У каждого игрока по 10 попыток угадать число");
-
-        GuessNumber guessNumber = new GuessNumber(player1, player2);
+        GuessNumber guessNumber = new GuessNumber(players);
         String answer = "yes";
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
