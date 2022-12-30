@@ -4,11 +4,12 @@ import java.util.Arrays;
 
 public class Player {
 
+    public static final int LOWER_RANGE_LIMIT = 1;
+    public static final int UPPER_RANGE_LIMIT = 100;
     private final String name;
     private final int[] numbers = new int[10];
     private int attempt;
-
-    private int points;
+    private int wins;
 
     public Player(String name) {
         this.name = name;
@@ -27,13 +28,13 @@ public class Player {
     }
 
     public boolean addNumber(int number) {
-        if (number < 1 || number > 100) {
-            System.out.println("Вы ввели число, не входящее в дипазон (0, 100]. Введите число из диапазона.");
-            return true;
+        if (number < LOWER_RANGE_LIMIT || number > UPPER_RANGE_LIMIT) {
+            System.out.println("Вы ввели число, не входящее в диапазон (0, 100]. Введите число из диапазона.");
+            return false;
         }
         numbers[attempt] = number;
         attempt++;
-        return false;
+        return true;
     }
 
     public int getAttempt() {
@@ -45,11 +46,11 @@ public class Player {
         attempt = 0;
     }
 
-    public int getPoints() {
-        return points;
+    public int getWins() {
+        return wins;
     }
 
-    public void addPoints() {
-        points++;
+    public void setWins() {
+        wins++;
     }
 }
