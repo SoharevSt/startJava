@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Player {
 
-    public static final int LOWER_RANGE_LIMIT = 1;
-    public static final int UPPER_RANGE_LIMIT = 100;
+    public static final int START_RANGE = 1;
+    public static final int END_RANGE = 100;
     private final String name;
     private final int[] numbers = new int[10];
     private int attempt;
@@ -28,7 +28,7 @@ public class Player {
     }
 
     public boolean addNumber(int number) {
-        if (number < LOWER_RANGE_LIMIT || number > UPPER_RANGE_LIMIT) {
+        if (number < START_RANGE || number > END_RANGE) {
             System.out.println("Вы ввели число, не входящее в диапазон (0, 100]. Введите число из диапазона.");
             return false;
         }
@@ -50,7 +50,7 @@ public class Player {
         return wins;
     }
 
-    public void setWins() {
+    public void upWins() {
         wins++;
     }
 }
