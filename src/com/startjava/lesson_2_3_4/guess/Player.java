@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Player {
 
-    public static final int START_RANGE = 1;
-    public static final int END_RANGE = 100;
+    private static final int START_RANGE = 1;
+    private static final int END_RANGE = 100;
     private final String name;
     private final int[] numbers = new int[10];
     private int attempt;

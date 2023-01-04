@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class GuessNumber {
     private static final int ROUNDS = 3;
     private static final int ATTEMPTS = 10;
+    private static final Scanner sc = new Scanner(System.in);
     private final Player[] players;
     private int secretNumber;
 
@@ -23,9 +24,9 @@ public class GuessNumber {
 
     private void castLots() {
         for (int i = players.length - 1; i > 0; i--) {
-            int random = (int) (Math.random() * (i + 1));
-            Player temp = players[random];
-            players[random] = players[i];
+            int index = (int) (Math.random() * (i + 1));
+            Player temp = players[index];
+            players[index] = players[i];
             players[i] = temp;
         }
     }
@@ -39,7 +40,7 @@ public class GuessNumber {
         int attempts = 0;
         while (!isWin && attempts < ATTEMPTS) {
             for (Player p : players) {
-                numberEntry(p);
+                inputNumber(p);
                 if (isGuessed(p)) {
                     isWin = true;
                     break;
@@ -51,21 +52,21 @@ public class GuessNumber {
         printPlayersAttempts();
     }
 
-    private static void numberEntry(Player p) {
-        Scanner sc = new Scanner(System.in);
+    private static void inputNumber(Player p) {
         do {
             System.out.println("Игрок " + p.getName() + " введите число:");
         } while (!p.addNumber(sc.nextInt()));
     }
 
     private boolean isGuessed(Player player) {
-        if (player.getNumber() == secretNumber) {
+        int number = player.getNumber();
+        if (number == secretNumber) {
             System.out.println("Игрок " + player.getName() + " угадал число " + secretNumber + " c " +
                     player.getAttempt() + " попытки");
             player.upWins();
             return true;
         }
-        System.out.println("Число " + player.getNumber() + (player.getNumber() > secretNumber ? " больше " :
+        System.out.println("Число " + number + (number > secretNumber ? " больше " :
                 " меньше ") + "того, что загадал компьютер");
         return false;
     }
