@@ -1,10 +1,8 @@
-CREATE
-DATABASE test_db;
+CREATE DATABASE test_db;
 \c test_db;
 DROP TABLE IF EXISTS jaegers;
-CREATE TABLE jaegers
-(
-    id_jaeger  INT         NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+CREATE TABLE jaegers (
+    id_jaeger  SERIAL PRIMARY KEY,
     model_name VARCHAR(30) NOT NULL,
     mark       VARCHAR(20) NOT NULL,
     height     NUMERIC     NOT NULL,
